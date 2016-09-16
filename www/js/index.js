@@ -24,12 +24,25 @@ var app = {
     initialize: function() {
         console.log("Inicializando app");
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        console.log("App inciializada");
+        console.log("App incializada");
+       
     },
     
     onDeviceReady: function() {
         console.log("El dispositivo ya esta listo");
-    }
+         $("#btnfoto").click(function(event){
+           
+           navigator.camera.getPicture(cameraSuccess, cameraError, {});
+           
+          /* alert("Ahora haria una foto");*/
+    });
+ }
 };
 
 app.initialize();
+function cameraSuccess() {
+    alert("La camara ha funcionado bien");
+}
+function cameraError() {
+    alert("Ha habido un errror");
+}
